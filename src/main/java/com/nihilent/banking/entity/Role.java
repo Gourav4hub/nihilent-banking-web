@@ -19,7 +19,7 @@ public class Role extends BaseEntity
 {
 	@Id
 	@Column(name = "role_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer roleId;
 	
 	@Column(name = "role_name",unique = true,nullable = false)

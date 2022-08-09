@@ -26,7 +26,7 @@ public class CustomerAccounts extends BaseEntity
 {
 	@Id
 	@Column(name = "customer_account_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer customerAccountId;
 	
 	@Column(name = "account_name",unique = true,nullable = false)

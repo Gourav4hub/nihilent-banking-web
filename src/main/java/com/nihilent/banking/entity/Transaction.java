@@ -20,14 +20,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "transaction")
+@Table(name = "account_transaction")
 @Data
 @NoArgsConstructor
 public class Transaction extends BaseEntity
 {
 	@Id
 	@Column(name = "transaction_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer transactionId;
 	
 	@Column(name = "transaction_amount",nullable = false)

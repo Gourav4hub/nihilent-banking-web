@@ -26,7 +26,7 @@ public class SuperAdmin extends BaseEntity
 {
 	@Id
 	@Column(name = "superadmin_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer superAdminId;
 	
 	@Column(name = "admin_name",nullable = false)
@@ -36,6 +36,6 @@ public class SuperAdmin extends BaseEntity
 	private String adminContact;
 
 	@OneToOne
-	@JoinColumn(name = "user")
+	@JoinColumn(name = "bankuser")
 	private User user;
 }

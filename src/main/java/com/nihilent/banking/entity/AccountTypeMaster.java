@@ -20,7 +20,7 @@ public class AccountTypeMaster extends BaseEntity
 {
 	@Id
 	@Column(name = "account_type_master_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer accountTypeMasterId;
 	
 	@Column(name = "account_type_name",unique = true, nullable = false)

@@ -25,7 +25,7 @@ public class BankMaster extends BaseEntity
 {
 	@Id
 	@Column(name = "bank_master_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer bankMasterId;
 	
 	@Column(name = "bank_name",unique = true, nullable = false)

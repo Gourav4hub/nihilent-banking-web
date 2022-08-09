@@ -26,7 +26,7 @@ public class Customer extends BaseEntity
 {
 	@Id
 	@Column(name = "customer_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer customerId;
 	
 	@Column(name = "customer_name",nullable = false)
@@ -43,6 +43,6 @@ public class Customer extends BaseEntity
 	private BankMaster bank;
 	
 	@OneToOne
-	@JoinColumn(name = "user")
+	@JoinColumn(name = "bankuser")
 	private User user;
 }

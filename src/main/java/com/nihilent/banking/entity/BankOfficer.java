@@ -26,7 +26,7 @@ public class BankOfficer extends BaseEntity
 {
 	@Id
 	@Column(name = "bank_officer_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer bankOfficerId;
 	
 	@Column(name = "officer_name",nullable = false)
@@ -40,6 +40,6 @@ public class BankOfficer extends BaseEntity
 	private BankMaster bank;
 	
 	@OneToOne
-	@JoinColumn(name = "user")
+	@JoinColumn(name = "bankuser")
 	private User user;
 }
