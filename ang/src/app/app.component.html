@@ -1,5 +1,5 @@
 <!-- Before Login -->
-<app-login *ngIf="!this.userService.isLogin()"></app-login>
+<app-login *ngIf="this.userService.isLogin()==false"></app-login>
 
 <!-- After Login -->
     <div id="wrapper" *ngIf="this.userService.isLogin()">

@@ -38,7 +38,7 @@ public class NihilentBankingWebApplication implements CommandLineRunner
 		List<SuperAdmin> admins = superAdminService.getByName("Nihilent Admin");
 		if(admins.size()==0) 
 		{
-			Role role = new Role(null, "superadmin");
+			Role role = new Role(null, "ROLE_BANK_SUPERADMIN");
 			
 				Set<Role> sets = new HashSet<>();
 				sets.add(role);

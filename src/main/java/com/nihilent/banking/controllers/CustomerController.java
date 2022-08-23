@@ -60,6 +60,7 @@ public class CustomerController
 			roles.add(role);
 			User user = new User(null, model.getUserName(), model.getPassword(), model.getEmail(), roles);
 			user = userService.save(user);
+			
 			String upi = bank.getBankName().substring(0, 3)+user.getUserId();
 			Customer customer = new Customer(null, model.getCustomerName(), upi, model.getCustomerPhone(), bank, user);
 			

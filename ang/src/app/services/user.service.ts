@@ -16,6 +16,7 @@ export class UserService
     var info = localStorage.getItem('user')
     if(info!=null){
       this.loginUser = JSON.parse(info)
+      console.log(">>>>" , this.loginUser)
     }
   }
 
