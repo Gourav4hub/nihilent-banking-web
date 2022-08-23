@@ -21,11 +21,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "user")
+@Table(name = "bankuser")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User 
+public class BankUser 
 {
     @Id
     @Column(name = "user_id")

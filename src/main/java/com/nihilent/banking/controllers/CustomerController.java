@@ -16,7 +16,7 @@ import com.nihilent.banking.entity.Bank;
 import com.nihilent.banking.entity.BankOfficer;
 import com.nihilent.banking.entity.Customer;
 import com.nihilent.banking.entity.Role;
-import com.nihilent.banking.entity.User;
+import com.nihilent.banking.entity.BankUser;
 import com.nihilent.banking.models.CustomerModel;
 import com.nihilent.banking.response.ApiResponse;
 import com.nihilent.banking.services.CustomerService;
@@ -46,7 +46,7 @@ public class CustomerController
 	public ResponseEntity<ApiResponse> saveCustomer(@RequestBody CustomerModel  model)
 	{		
 		System.out.println("Model : " + model);
-		User loginUser = userService.getByName(model.getOfficerId());
+		BankUser loginUser = userService.getByName(model.getOfficerId());
 		BankOfficer officer = bankOfficerService.getByUser(loginUser);
 		
 		Role role = roleService.getByName("ROLE_BANK_CUSTOMER");
@@ -58,7 +58,7 @@ public class CustomerController
 		{
 			Set<Role> roles = new HashSet<>();
 			roles.add(role);
-			User user = new User(null, model.getUserName(), model.getPassword(), model.getEmail(), roles);
+			BankUser user = new BankUser(null, model.getUserName(), model.getPassword(), model.getEmail(), roles);
 			user = userService.save(user);
 			
 			String upi = bank.getBankName().substring(0, 3)+user.getUserId();

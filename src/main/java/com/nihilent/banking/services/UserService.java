@@ -8,18 +8,18 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nihilent.banking.entity.User;
+import com.nihilent.banking.entity.BankUser;
 import com.nihilent.banking.repositories.UserRepository;
 @Service
-public class UserService implements BaseService<User>
+public class UserService implements BaseService<BankUser>
 {
 	@Autowired
 	private UserRepository userRepository;
 	
 	@Override
-	public User save(User ob) {
+	public BankUser save(BankUser ob) {
 		try {
-			User User = userRepository.save(ob);
+			BankUser User = userRepository.save(ob);
 			return User;
 		}catch(Exception ex) {
 			System.out.println("User Save Error : " + ex.getMessage());
@@ -28,9 +28,9 @@ public class UserService implements BaseService<User>
 	}
 
 	@Override
-	public User update(User ob) {
+	public BankUser update(BankUser ob) {
 		try {
-			User User = userRepository.save(ob);
+			BankUser User = userRepository.save(ob);
 			return User;
 		}catch(Exception ex) {
 			System.out.println("User Update Error : " + ex.getMessage());
@@ -39,7 +39,7 @@ public class UserService implements BaseService<User>
 	}
 
 	@Override
-	public List<User> list() {
+	public List<BankUser> list() {
 		try {
 			return userRepository.findAll();
 		}catch(Exception ex) {
@@ -49,9 +49,9 @@ public class UserService implements BaseService<User>
 	}
 
 	@Override
-	public User get(int id) {
+	public BankUser get(int id) {
 		try {
-			Optional<User> op = userRepository.findById(id);
+			Optional<BankUser> op = userRepository.findById(id);
 			if(op.isPresent())
 				return op.get();
 			else
@@ -62,9 +62,9 @@ public class UserService implements BaseService<User>
 		}
 	}
 	
-	public User getByName(String name) {
+	public BankUser getByName(String name) {
 		try {
-			Optional<User> op = userRepository.findByUsername(name);
+			Optional<BankUser> op = userRepository.findByUsername(name);
 			if(op.isPresent())
 				return op.get();
 			else

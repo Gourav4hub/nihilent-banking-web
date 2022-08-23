@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import com.nihilent.banking.entity.User;
+import com.nihilent.banking.entity.BankUser;
 import com.nihilent.banking.models.LoginUserInfo;
 import com.nihilent.banking.models.LoginUserModel;
 import com.nihilent.banking.response.ApiResponse;
@@ -31,7 +31,7 @@ public class AdminController
 	@PostMapping("/authenticate")
 	public ApiResponse authenticate(@RequestBody LoginUserModel loginUser)
 	{
-		User user = userService.getByName(loginUser.getUsername());
+		BankUser user = userService.getByName(loginUser.getUsername());
 		if(user!=null) {
 			if(user.getPassword().equals(loginUser.getPassword())) 
 			{
@@ -42,7 +42,7 @@ public class AdminController
 				return new ApiResponse(false, null, "Invalid Password !");
 			}
 		}else {
-			return new ApiResponse(false, null, "Invalid Email ! ");
+			return new ApiResponse(false, null, "Invalid User Name ! ");
 		}
 	}
 	

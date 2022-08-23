@@ -30,5 +30,5 @@ public class BankOfficer
     
     @OneToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private BankUser user;
 }

@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.nihilent.banking.entity.SuperAdmin;
-import com.nihilent.banking.entity.User;
+import com.nihilent.banking.entity.BankUser;
 
 @Repository
 public interface SuperAdminRepository extends JpaRepository<SuperAdmin,Integer>{

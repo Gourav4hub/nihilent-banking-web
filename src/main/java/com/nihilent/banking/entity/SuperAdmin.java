@@ -41,5 +41,5 @@ public class SuperAdmin
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private BankUser user;
 }

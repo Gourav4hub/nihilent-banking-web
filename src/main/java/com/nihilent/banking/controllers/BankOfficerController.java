@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nihilent.banking.entity.Bank;
 import com.nihilent.banking.entity.BankOfficer;
 import com.nihilent.banking.entity.Role;
-import com.nihilent.banking.entity.User;
+import com.nihilent.banking.entity.BankUser;
 import com.nihilent.banking.models.BankOfficerModel;
 import com.nihilent.banking.response.ApiResponse;
 import com.nihilent.banking.services.BankOfficerService;
@@ -50,7 +50,7 @@ public class BankOfficerController
 		{
 			Set<Role> roles = new HashSet<>();
 			roles.add(role);
-			User user = new User(null, model.getUserName(), model.getPassword(), model.getEmail(), roles);
+			BankUser user = new BankUser(null, model.getUserName(), model.getPassword(), model.getEmail(), roles);
 			user = userService.save(user);
 			
 			BankOfficer newofficer = new BankOfficer(null, model.getOfficerName(), model.getOfficerPhone(), bank, user);

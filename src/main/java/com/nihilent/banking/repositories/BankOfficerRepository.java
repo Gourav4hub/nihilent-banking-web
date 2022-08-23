@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import com.nihilent.banking.entity.BankOfficer;
 import com.nihilent.banking.entity.Role;
-import com.nihilent.banking.entity.User;
+import com.nihilent.banking.entity.BankUser;
 
 @Repository
 public interface BankOfficerRepository extends JpaRepository<BankOfficer,Integer>{
-	List<BankOfficer> findByUser(User user);
+	List<BankOfficer> findByUser(BankUser user);
 }

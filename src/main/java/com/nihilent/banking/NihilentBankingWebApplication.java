@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.nihilent.banking.entity.Role;
 import com.nihilent.banking.entity.SuperAdmin;
-import com.nihilent.banking.entity.User;
+import com.nihilent.banking.entity.BankUser;
 import com.nihilent.banking.services.RoleService;
 import com.nihilent.banking.services.SuperAdminService;
 import com.nihilent.banking.services.UserService;
@@ -43,7 +43,7 @@ public class NihilentBankingWebApplication implements CommandLineRunner
 				Set<Role> sets = new HashSet<>();
 				sets.add(role);
 		
-				User user = new User(null,"super_admin","12345", "nihilent_admin@gmail.com", sets);
+				BankUser user = new BankUser(null,"super_admin","12345", "nihilent_admin@gmail.com", sets);
 				user = userService.save(user);
 				if(user!=null) {
 					SuperAdmin sadmin = new SuperAdmin(null, "Nihilent Admin", "9879877676", user);

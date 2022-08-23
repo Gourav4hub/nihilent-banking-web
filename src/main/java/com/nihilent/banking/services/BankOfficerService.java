@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nihilent.banking.entity.BankOfficer;
-import com.nihilent.banking.entity.User;
+import com.nihilent.banking.entity.BankUser;
 import com.nihilent.banking.repositories.BankOfficerRepository;
 
 @Service
@@ -76,7 +76,7 @@ public class BankOfficerService implements BaseService<BankOfficer>
 		}
 	}
 
-	public BankOfficer getByUser(User loginUser) {
+	public BankOfficer getByUser(BankUser loginUser) {
 		
 		List<BankOfficer> officers = bankOfficerRepository.findByUser(loginUser);
 		

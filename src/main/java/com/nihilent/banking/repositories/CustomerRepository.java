@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import com.nihilent.banking.entity.Customer;
 import com.nihilent.banking.entity.Role;
-import com.nihilent.banking.entity.User;
+import com.nihilent.banking.entity.BankUser;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer,Integer>{
 	
-	List<Customer> findByUser(User user);
+	List<Customer> findByUser(BankUser user);
 }
