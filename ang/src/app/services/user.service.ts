@@ -12,7 +12,12 @@ export class UserService
     usertype : undefined,
     token : undefined
   }
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) { 
+    var info = localStorage.getItem('user')
+    if(info!=null){
+      this.loginUser = JSON.parse(info)
+    }
+  }
 
   public isLogin(){return this.loginUser.loginstatus}
   public userName(){return this.loginUser.username}
@@ -25,6 +30,8 @@ export class UserService
     this.loginUser.usertype = data.usertype
     this.loginUser.token = data.token
     this.loginUser.loginstatus = true
+
+    localStorage.setItem('user',JSON.stringify(this.loginUser))
   }
 
   public logout(){
@@ -32,6 +39,7 @@ export class UserService
     this.loginUser.usertype = undefined
     this.loginUser.token = undefined
     this.loginUser.loginstatus = false
+    localStorage.removeItem('user')
   }
 
   public login(data:any){

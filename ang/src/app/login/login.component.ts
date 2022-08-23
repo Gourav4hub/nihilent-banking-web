@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit
 
   public login(data:any){
     this.userService.login(data).subscribe((response:any)=>{
+      console.log(response)
        if(response.status){
           this.userService.setLoginUser(response.data)
        }else{

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from 'src/app/services/customer.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-customer',
@@ -6,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-
-  constructor() { }
+  public errormsg:string = ""
+  public customers:any[] = []
+  constructor(private userService:UserService,
+    private customerService:CustomerService) { }
 
   ngOnInit(): void {
+  }
+
+  public save(data:any){  
+    console.log(this.userService.userName() )
+    data.officerId = this.userService.userName() 
+    this.customerService.saveCustomer(data).subscribe((response:any)=>{
+      if(response.status){
+        this.customers.push(response.data)
+      }   
+    })
   }
 
 }

@@ -39,10 +39,10 @@ public class AdminController
 				return new ApiResponse(true, new LoginUserInfo(user.getUsername(),type ,null), "Success");
 			}
 			else {
-				return new ApiResponse(true, null, "Invalid Password !");
+				return new ApiResponse(false, null, "Invalid Password !");
 			}
 		}else {
-			return new ApiResponse(true, null, "Invalid Email ! ");
+			return new ApiResponse(false, null, "Invalid Email ! ");
 		}
 	}
 	
