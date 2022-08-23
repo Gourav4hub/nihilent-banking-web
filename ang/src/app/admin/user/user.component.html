@@ -1,0 +1,20 @@
+<h1 class="alert alert-danger">Users !</h1>
+<hr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>S. No.</th>
+            <th>User Name</th>
+            <th>User Email</th>
+            <th>User Type</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let user of users;let i = index">
+                <th>{{i+1}}</th>
+                <th>{{user.username}}</th>
+                <th>{{user.email}}</th>
+                <th>{{user.roles[0].roleName}}</th>
+            </tr>
+    </tbody>
+</table>

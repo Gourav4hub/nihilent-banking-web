@@ -1,0 +1,95 @@
+
+      <!-- Sidebar -->
+      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">Bank App</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard </span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item" *ngIf="this.userService.userType()=='ROLE_BANK_SUPERADMIN'">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admindiv"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Admin</span>
+            </a>
+            <div id="admindiv" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Admin Options:</h6>
+                    <a class="collapse-item" routerLink="/roles">Roles</a>
+                    <a class="collapse-item" routerLink="/users">Users</a>
+                    <a class="collapse-item" routerLink="/acttypes">Account Types</a>
+                    <a class="collapse-item" routerLink="/banks">Bank</a> 
+                    <a class="collapse-item" routerLink="/officers">Bank Officer</a>                   
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item" *ngIf="this.userService.userType()=='ROLE_BANK_BANKOFFICER'">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#bankdiv"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Bank</span>
+            </a>
+            <div id="bankdiv" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Bank Options:</h6>                   
+                    <a class="collapse-item" routerLink="/customers">Customer</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item" *ngIf="this.userService.userType()=='ROLE_BANK_CUSTOMER'">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#customerdiv"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Customer</span>
+            </a>
+            <div id="customerdiv" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Customer Options:</h6>
+                    <a class="collapse-item" routerLink="/transactions">Transactions</a>
+                    <a class="collapse-item" routerLink="/transfer">Amount Transfer</a>
+                    <a class="collapse-item" routerLink="/account">Account Overview</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#profilediv"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Profile</span>
+            </a>
+            <div id="profilediv" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Customer Options:</h6>
+                    <b class="collapse-item" (click)="logout()">Logout</b>                   
+                </div>
+            </div>
+        </li>
+
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+
+
+    </ul>
+    <!-- End of Sidebar -->

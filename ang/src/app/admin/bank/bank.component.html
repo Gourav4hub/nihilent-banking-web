@@ -1,0 +1,70 @@
+<h1 class="alert alert-danger">Banks !</h1>
+<form #frm="ngForm" (submit)="save(frm.value)">
+    <div class="row">
+            <div class="col-lg-4 col-md-4">
+               <input type="text" name="bankName" ngModel placeholder="Bank Name" 
+               class="form-control">     
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <input type="text" name="bankAddress" ngModel placeholder="Bank Address" 
+                class="form-control">     
+             </div>
+             <div class="col-lg-4 col-md-4">
+                <input type="text" name="bankContact" ngModel placeholder="Bank Contact" 
+                class="form-control">     
+             </div>                                       
+    </div>  
+    <div class="row mt-3">
+        <div class="col-lg-4 col-md-4">
+           <input type="text" name="bankIfsc" ngModel placeholder="Bank IFSC" 
+           class="form-control">     
+        </div>
+        <div class="col-lg-4 col-md-4">
+            <input type="text" name="bankCountry" ngModel placeholder="Bank Country" 
+            class="form-control">     
+         </div>
+         <div class="col-lg-4 col-md-4">
+            <b>Select Account Types</b><br>
+            <div *ngFor="let role of types;let i = index">
+               <input type="checkbox" (change)="changeType($event)" value="{{role.accountTypeId}}"> 
+               &nbsp; <b>{{role.accountTypeName}}</b>
+            </div>
+         </div>                                       
+</div> 
+    <div class="row mt-5">
+        <div class="col-lg-4 col-md-4">
+            <button class="btn btn-success">Save Bank</button>
+            &nbsp;
+            <b class="text-danger">{{errormsg}}</b>
+        </div>   
+    </div> 
+</form>
+<hr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>S. No.</th>
+            <th>Bank Name</th>
+            <th>Address</th>
+            <th>Contact</th>
+            <th>IFSC</th>
+            <th>Country</th>
+            <th>Account Types</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let role of banks;let i = index">
+                <th>{{i+1}}</th>
+                <th>{{role.bankName}}</th>
+                <th>{{role.bankAddress}}</th>
+                <th>{{role.bankContact}}</th>
+                <th>{{role.bankIfsc}}</th>
+                <th>{{role.bankCountry}}</th>
+                <th>
+                    <p *ngFor="let typ of role.accountTypes;let i = index">
+                       <b>{{typ.accountTypeName}}</b>
+                    </p>
+                </th>
+            </tr>
+    </tbody>
+</table>

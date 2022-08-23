@@ -1,0 +1,32 @@
+<h1 class="alert alert-danger">Roles !</h1>
+<form #frm="ngForm" (submit)="save(frm.value)">
+    <div class="row">
+       
+            <div class="col-lg-2 col-md-2"></div>
+            <div class="col-lg-4 col-md-4">
+               <input type="text" name="typeName" ngModel placeholder="Account Type" 
+               class="form-control">     
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <button class="btn btn-success">Save Account Type</button>
+                &nbsp;
+                <b class="text-danger">{{errormsg}}</b>
+            </div>
+            <div class="col-lg-2 col-md-2"></div>                   
+    </div>   
+</form>
+<hr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>S. No.</th>
+            <th>Account Type Name</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let role of types;let i = index">
+                <th>{{i+1}}</th>
+                <th>{{role.accountTypeName}}</th>
+            </tr>
+    </tbody>
+</table>

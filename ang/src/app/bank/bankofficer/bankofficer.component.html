@@ -1,0 +1,61 @@
+<h1 class="alert alert-danger">Banks Officer !</h1>
+<form #frm="ngForm" (submit)="save(frm.value)">
+    <div class="row">
+            <div class="col-lg-4 col-md-4">
+               <input type="text" name="userName" ngModel placeholder="User Name" 
+               class="form-control">     
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <input type="text" name="email" ngModel placeholder="Email" 
+                class="form-control">     
+             </div>
+            <div class="col-lg-4 col-md-4">
+                <input type="password" name="password" ngModel placeholder="Password" 
+                class="form-control">     
+             </div>                                       
+    </div>  
+    <div class="row mt-3">
+        <div class="col-lg-4 col-md-4">
+            <input type="text" name="officerName" ngModel placeholder="Officer Name" 
+            class="form-control">     
+         </div>
+         <div class="col-lg-4 col-md-4">
+             <input type="text" name="officerPhone" ngModel placeholder="Contact" 
+             class="form-control">     
+          </div>
+         <div class="col-lg-4 col-md-4">
+            <select class="form-control" name="bankId" ngModel>
+                <option value="">Choose Bank</option>
+                <option *ngFor="let bk of banks" value="{{bk.bankId}}">{{bk.bankName}}</option>
+            </select>
+          </div>                                     
+    </div> 
+    <div class="row mt-5">
+        <div class="col-lg-4 col-md-4">
+            <button class="btn btn-success">Save Officer</button>
+            &nbsp;
+            <b class="text-danger">{{errormsg}}</b>
+        </div>   
+    </div> 
+</form>
+<hr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>S. No.</th>
+            <th>Officer Name</th>         
+            <th>Contact</th>           
+            <th>Email</th>
+            <th>Bank</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let role of officers;let i = index">
+                <th>{{i+1}}</th>
+                <th>{{role.officerName}}</th>
+                <th>{{role.officerPhone}}</th>
+                <th>{{role.user.email}}</th>
+                <th>{{role.bank.bankName}}</th>              
+            </tr>
+    </tbody>
+</table>
