@@ -16,4 +16,25 @@ export class CustomerService {
   {
     return this.http.get("/api/customer/list")
   }
+
+  public getCustomer(name:string)
+  {
+    return this.http.post("/api/customer/getByUserName",{name})
+  }
+
+  public getCustomerByUpi(upi:string)
+  {
+    return this.http.post("/api/customer/getByUpi",{upi})
+  }
+
+  public sendAmount(data:any)
+  {
+    return this.http.post("/api/customer/sendamount",data)
+  }
+
+  public getTransactions(name:string)
+  {
+    return this.http.post("/api/customer/getTransactions",{name})
+  }
+
 }

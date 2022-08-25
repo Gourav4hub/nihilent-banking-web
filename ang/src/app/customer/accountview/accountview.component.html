@@ -1,0 +1,24 @@
+<h1 class="alert alert-danger">Customer Account !</h1>
+<hr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>S. No.</th>
+            <th>Account Number</th>         
+            <th>Account Type</th>   
+            <th>Balance</th>        
+            <th>Per Day Limit</th>
+            <th>Per Day Transaction</th>            
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <th>1</th>
+                <th>{{accountData.accountNumber}}</th>         
+                <th>{{accountData.accountType.accountTypeName}}</th>   
+                <th>{{accountData.balance}}</th>        
+                <th>{{accountData.preDayLimit}}</th>
+                <th>{{accountData.perTransactionLimit}}</th>  
+            </tr>
+    </tbody>
+</table>

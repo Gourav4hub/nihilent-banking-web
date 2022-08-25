@@ -41,15 +41,27 @@
             <th>Contact</th>           
             <th>Email</th>
             <th>Bank</th>
+            <th>Account</th>
         </tr>
     </thead>
     <tbody>
-            <tr *ngFor="let role of customers;let i = index">
+            <tr *ngFor="let customer of customers;let i = index">
                 <th>{{i+1}}</th>
-                <th>{{role.customerName}}</th>
-                <th>{{role.customerPhone}}</th>
-                <th>{{role.user.email}}</th>
-                <th>{{role.bank.bankName}}</th>              
+                <th>{{customer.customerName}}</th>
+                <th>{{customer.customerPhone}}</th>
+                <th>{{customer.user.email}}</th>
+                <th>{{customer.bank.bankName}}</th>  
+                <th>
+                    <a routerLink="/addaccount/{{customer.customerId}}"><b *ngIf="customer.account==null" class="btn btn-success">
+                        Add Account</b></a>
+                    <div *ngIf="customer.account!=null">
+                        <h6 class="text-danger bg-success">UPI : {{customer.customerUpi}}</h6>
+                        <hr>
+                        <b class="text-danger">Act Number : {{customer.account.accountNumber}}</b><br>
+                        <b class="text-danger">Per Day Limit : {{customer.account.preDayLimit}}</b><br>
+                        <b class="text-danger">Per Trans Limit : {{customer.account.perTransactionLimit}}</b>
+                    </div>
+                </th>            
             </tr>
     </tbody>
 </table>

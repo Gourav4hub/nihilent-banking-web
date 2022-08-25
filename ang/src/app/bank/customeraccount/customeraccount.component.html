@@ -1,0 +1,58 @@
+<h1 class="alert alert-danger">Add Customer Account !</h1>
+<form #frm="ngForm" (submit)="save(frm.value)">
+    <div class="row">
+            <div class="col-lg-2 col-md-2"></div>
+            <div class="col-lg-4 col-md-4">
+                <select name="accountType" ngModel class="form-control" >
+                    <option value="">Choose Account Type</option>
+                    <option *ngFor="let role of types;let i = index" value="{{role.accountTypeId}}"> 
+                    <b>{{role.accountTypeName}}</b></option>
+                </select>    
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <input type="number" name="balance" ngModel placeholder="Balance" 
+                class="form-control">     
+            </div>                               
+            <div class="col-lg-2 col-md-2"></div>                 
+    </div>  
+    <div class="row mt-3">
+        <div class="col-lg-2 col-md-2"></div>
+        <div class="col-lg-4 col-md-4">
+            <input type="number" name="preDayLimit" ngModel placeholder="Per Day Limit" 
+            class="form-control">    
+        </div>
+        <div class="col-lg-4 col-md-4">
+            <input type="number" name="perTransactionLimit" ngModel placeholder="Per Transaction Limit" 
+            class="form-control">     
+        </div>                               
+        <div class="col-lg-2 col-md-2"></div>                                     
+    </div> 
+    <div class="row mt-5">
+        <div class="col-lg-2 col-md-2"></div>  
+        <div class="col-lg-4 col-md-4">
+            <button class="btn btn-success">Save Account</button>
+            &nbsp;
+            <b class="text-danger">{{errormsg}}</b>
+        </div>   
+        <div class="col-lg-2 col-md-2">
+            <a routerLink="/customers"><b class="btn btn-success">Back</b> </a>
+        </div>  
+    </div> 
+</form>
+<hr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>S. No.</th>
+            <th>Account Number</th>         
+            <th>Account Type</th>           
+            <th>Per Day Limit</th>
+            <th>Per Day Transaction</th>            
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                        
+            </tr>
+    </tbody>
+</table>

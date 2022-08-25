@@ -34,4 +34,8 @@ public class Customer
     @OneToOne
     @JoinColumn(name = "user_id")
     private BankUser user;
+    
+    @OneToOne
+    @JoinColumn(name = "customer_account_id")
+    private CustomerAccount account;
 }

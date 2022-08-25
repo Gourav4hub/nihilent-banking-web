@@ -1,3 +1,30 @@
 <h1 class="alert alert-danger">Amount Transfer !</h1>
+<h3>Account Number : {{accountData.accountNumber}}</h3>
+<hr>
+<form #frm="ngForm" (submit)="send(frm.value)">
 <div class="row">
+    <div class="col-lg-2 col-md-2"></div>
+    <div class="col-lg-4 col-md-4">
+        <input type="text" name="upi" ngModel (blur)="checkUPI($event)" placeholder="Enter UPI ID" class="form-control">
+        <br>
+        <b class="text-danger">{{upiFoundMsg}}</b>
+    </div>
+    <div class="col-lg-4 col-md-4">
+        <input type="number" name="amount" ngModel (blur)="checkAmount($event)" placeholder="Enter Amount" class="form-control">
+        <br>
+        <b class="text-danger">{{perTransLimitMsg}}</b>
+    </div>   
 </div>
+<div class="row mt-5">
+    <div class="col-lg-3 col-md-3"></div>
+    <div class="col-lg-4 col-md-4">
+        <input type="text" name="description" ngModel
+        placeholder="Message" class="form-control">
+       
+    </div>   
+    <div class="col-lg-2 col-md-2">
+        <button class="btn btn-warning"         
+        [disabled]="upiFoundStatus==false || perTransLimitStatus==false">Send Amount</button>
+    </div>
+</div>
+</form>

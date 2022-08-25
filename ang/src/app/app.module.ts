@@ -18,7 +18,8 @@ import { BankofficerComponent } from './bank/bankofficer/bankofficer.component';
 import { CustomerComponent } from './bank/customer/customer.component';
 import { TransactionsComponent } from './customer/transactions/transactions.component';
 import { TransferComponent } from './customer/transfer/transfer.component';
-import { AccountComponent } from './customer/account/account.component';
+import { CustomeraccountComponent } from './bank/customeraccount/customeraccount.component';
+import { AccountviewComponent } from './customer/accountview/accountview.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AccountComponent } from './customer/account/account.component';
     CustomerComponent,
     TransactionsComponent,
     TransferComponent,
-    AccountComponent
+    CustomeraccountComponent,
+    AccountviewComponent
   ],
   imports: [
     BrowserModule,

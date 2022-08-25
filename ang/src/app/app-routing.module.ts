@@ -11,7 +11,8 @@ import { BankofficerComponent } from './bank/bankofficer/bankofficer.component';
 import { CustomerComponent } from './bank/customer/customer.component';
 import { TransactionsComponent } from './customer/transactions/transactions.component';
 import { TransferComponent } from './customer/transfer/transfer.component';
-import { AccountComponent } from './customer/account/account.component';
+import { CustomeraccountComponent } from './bank/customeraccount/customeraccount.component';
+import { AccountviewComponent } from './customer/accountview/accountview.component';
 
 const routes: Routes = [
   {path:"" , component:LoginComponent},
@@ -24,10 +25,11 @@ const routes: Routes = [
 
   {path:"officers" , component:BankofficerComponent},
   {path:"customers" , component:CustomerComponent},
+  {path:"addaccount/:id",component:CustomeraccountComponent},
 
   {path:"transactions" , component:TransactionsComponent},
   {path:"transfer" , component:TransferComponent},
-  {path:"account" , component:AccountComponent},
+  {path:"account" , component:AccountviewComponent},
 ];
 
 @NgModule({

@@ -14,6 +14,10 @@ export class CustomerComponent implements OnInit {
     private customerService:CustomerService) { }
 
   ngOnInit(): void {
+    this.customerService.listCustomer().subscribe((response:any)=>{
+      if(response.status)
+        this.customers = response.data
+    })
   }
 
   public save(data:any){  
